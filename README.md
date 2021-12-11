@@ -2,14 +2,17 @@
 
 [SportTracks.mobi](https://sporttracks.mobi) cannot connect directly to [Zwift](https://zwift.com). 
 
-This script downloads the latest Zwift acitivities to your computer and uploads them to SportTracks.mobi. The solution is quite inelegant since I cannot get the SportTracks.mobi API to work (to make matters worse their API documentation website has been removed). 
+This Python script downloads the latest Zwift acitivities to your computer and uploads them to SportTracks.mobi. The solution is quite inelegant since I cannot get the SportTracks.mobi API to work (to make matters worse their API documentation website has been removed). 
 
 There is no duplicate checking before uploading to SportTracks. By default the script downloads the 10 latest activities from Zwift. Any one of those activities that are not already downloaded are uploaded to SportTracks.mobi. If there are more than 10 FIT files in your directory, the oldest ones are deleted.
 
 ## Setup
 - Install [Zwift Mobile API Client](https://github.com/jsmits/zwift-client) into your env by `pip install zwift-client`.
 - Rename `servicesconfig_example.py` to `servicesconfig.py`
-- Edit your information in the config file. You can find your Zwift player ID by visiting [https://zwift.com/feed]() and clicking on one of your activities. Press the cog-icon and hover over the `Download FIT file` button. The URL format should be something like `amazonaws.com/prod/55555/...` where `55555` would be your player ID.
+- Edit your information in the config file. You can find your Zwift player ID by visiting [https://zwift.com/feed]() and clicking on one of your activities. Press the cog icon and hover over the `Download FIT file` button. The URL format should be something like `amazonaws.com/prod/55555/...` where `55555` would be your player ID.
+
+## Usage
+`python main.py --count 10 --upload true` downloads the 10 newest activities and uploads every activity that is not found on your hard drive to SportTracks. `--count` accepts any int (haven't checked what happens if you choose something far greater than your amount of Zwift activities) and `--upload` is a boolean that accepts `true` or `false` (or yes/no/1/0).
 
 ## Automation
 I have set up a LaunchAgent on my Mac to run this script every hour (using the correct Python environment).

@@ -1,11 +1,11 @@
-from distutils.util import strtobool
-from email import parser
 import os
-import requests
-from zwift import Client
-from lxml import html
-import servicesconfig as cfg
+from distutils.util import strtobool
 
+import requests
+from lxml import html
+from zwift import Client
+
+import servicesconfig as cfg
 
 client = Client(cfg.zwift["user"], cfg.zwift["pass"])
 
@@ -88,12 +88,9 @@ if __name__ == "__main__":
         + " Zwift and uploads them to Sporttracks.mobi")
 
     parser.add_argument("--count", type=int, default=10, help="int. Number of (newest) activities to download")
-    parser.add_argument("--upload", type=str, default="True", help="bool. True or False. Do you want to upload to SportTracks?")
+    parser.add_argument("--upload", type=str, default="true", help="bool. true or false. Do you want to upload to SportTracks?")
 
     args = parser.parse_args()
-
-
-    
 
     write_fit_files(args.count, strtobool(args.upload))
     delete_old(args.count)
