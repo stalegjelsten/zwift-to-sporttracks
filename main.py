@@ -90,13 +90,14 @@ def delete_old(n):
     # deletes the n oldest activities in activities dir
     
     os.chdir("activities")
-    existing_files = os.listdir()
+    existing_files = sorted(os.listdir())
     num_files = len(existing_files)
     if num_files > 10:
         i = 1
         for file in existing_files:
             if num_files - i > n:
                 os.remove(file)
+                print(f"Deleted {file} from folder.")
             i += 1
 
     os.chdir("..")
