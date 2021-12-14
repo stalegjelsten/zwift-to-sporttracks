@@ -30,13 +30,17 @@ My launchagent `.plist`-file, for reference 👇
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>some sensible name</string>
+    <string>my sensible launchagent name</string>
     <key>WorkingDirectory</key>
-    <string>path to working directory</string>
+        <string>path to working directory</string>
     <key>ProgramArguments</key>
     <array>
         <string>path to python env bin</string>
         <string>path to script main.py</string>
+        <string>--count</string>
+        <string>10</string>
+        <string>--upload</string>
+        <string>true</string>
     </array>
     <key>StartInterval</key>
     <integer>3600</integer>
