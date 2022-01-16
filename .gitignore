@@ -1,5 +1,7 @@
 *config.py
-2021*
+activities/*
 output.html
 __pycache__*
 *workspace*
+dev.py
+.vscode
